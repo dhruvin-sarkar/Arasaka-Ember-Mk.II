@@ -6,17 +6,17 @@ A cyberpunk-inspired wristwatch built on a custom flexible PCB, wrapping high-de
 
 ## PCB Layout
 
-![PCB Layout](assets/Screenshot_2026-03-02_232211.png)
+![PCB Layout](Assets/Screenshot%202026-03-02%20232211.png)
 
 | Top Layer | Bottom Layer | All Layers |
 |---|---|---|
-| ![Top](assets/Screenshot_2026-03-02_235317.png) | ![Bottom](assets/Screenshot_2026-03-02_235324.png) | ![Layers](assets/Screenshot_2026-03-02_235329.png) |
+| ![Top](Assets/Screenshot%202026-03-02%20235317.png) | ![Bottom](Assets/Screenshot%202026-03-02%20235324.png) | ![Layers](Assets/Screenshot%202026-03-02%20235329.png) |
 
 ---
 
 ## Schematic
 
-![Schematic](assets/Screenshot_2026-03-02.png)
+![Schematic](Assets/Screenshot%202026-03-02.png)
 
 ---
 
