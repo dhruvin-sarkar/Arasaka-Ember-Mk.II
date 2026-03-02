@@ -26,6 +26,20 @@ The STM32U083KCU6 microcontroller powers the system — chosen for its ultra-low
 
 ---
 
+## How It Works
+
+The core idea is to have a strip of alphanumeric LED displays (HCMS-2901 or similar Broadcom displays) daisy-chained together and wrapped around the wrist on a flexible PCB. On boot, the watch plays a Matrix-style waterfall animation before transitioning into a clock display. A few buttons on the board let you navigate menus and control brightness.
+
+The displays are driven in series — data passes from one display to the next down the chain. This means the further a display is from the microcontroller, the more sensitive it is to power fluctuations. During display refresh, all pixels briefly cut out and then blast back on, which causes a spike on the power rail. Without proper decoupling capacitors on the logic lines, this can cause the furthest displays to reset. Small bypass capacitors placed near each display's logic supply pin are needed to absorb these spikes and keep everything stable.
+
+Power comes from a small single-cell LiPo battery — something in the 200–500mAh range should work, salvaged or otherwise. The battery connects to a charging IC which handles USB charging, and a small LDO or buck regulator steps the voltage down to a stable 3.3V for the logic. At full brightness the displays draw around 1A total, so battery life will be short at max settings — the watch is designed to stay off by default and only activate on button press to conserve power.
+
+The flexible PCB is manufactured with stiffener layers in the regions where components are soldered, preventing the board from flexing at those points and snapping components off. The board clasps around the wrist using a pin header connector on each end — a USB-C connector was considered but would have been too tight and risked tearing the PCB when removing the watch.
+
+Programming and charging both happen over the same cable — a standard USB cable with a pin header on one end. The STM32U083 supports USB natively, so no additional programmer hardware is needed as long as the bootloader is set up correctly. Alternatively, an SWD debugger like an ST-Link can be used for programming if needed.
+
+---
+
 ## Project Scope
 
 - Custom schematic design
@@ -37,13 +51,13 @@ The STM32U083KCU6 microcontroller powers the system — chosen for its ultra-low
 
 ---
 
-## Hardware
+## Key Design Considerations
 
-### Key Design Considerations
+Power management is critical. During display refresh cycles, voltage drops and transient spikes can cause logic resets — particularly on displays furthest from the power supply. Adequate bypass capacitance on each display's logic line is required to keep the chain stable.
 
-Power management is critical in this design. During display refresh cycles, voltage drops and transient spikes can cause logic resets — particularly on displays furthest from the power supply. Adequate bypass capacitance and careful layout are required to mitigate this.
+Stiffener layers must be added to all component mounting regions. Without them, repeated bending of the flex PCB will cause components to crack or delaminate over time.
 
-Mechanical stiffener layers are applied to component mounting areas to prevent flex fatigue and component delamination during normal wear.
+The displays used (HCMS-2901) are not widely available and are fairly expensive at around $30 each. Sourcing directly from Broadcom or finding alternatives may be necessary. They are also sensitive to heat — hot air soldering damages them, so a low-temperature solder paste with a hotplate is recommended, though low-temp solder can be brittle on flexible boards and may need reinforcement.
 
 ---
 
