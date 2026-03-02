@@ -1,59 +1,61 @@
-Flexible LED Watch for Cyberpunk
+# Ember Mk.II — Flexible LED Watch
 
+A cyberpunk-inspired wristwatch built on a custom flexible PCB, wrapping high-density alphanumeric LED displays around the wrist in an infinite loop. Displays animated effects and real-time clock output.
 
-This project is a cyberpunk-inspired wristwatch idea that uses high-density alphanumeric LED displays mounted on a custom flexible PCB. The goal is to make a small, wearable "infinite loop" display that can show animated effects and tell the time in real time.
+---
 
+## PCB Layout
 
-The STM32U083KCU6 microcontroller was chosen for the system because it uses very little power, has built-in peripherals, and needs very few outside parts. The flexible PCB is meant to combine the microcontroller, charging circuitry, power regulation, display drivers, and user input into one continuous design.
+![PCB Layout](assets/Screenshot_2026-03-02_232211.png)
 
+| Top Layer | Bottom Layer | All Layers |
+|---|---|---|
+| ![Top](assets/Screenshot_2026-03-02_235317.png) | ![Bottom](assets/Screenshot_2026-03-02_235324.png) | ![Layers](assets/Screenshot_2026-03-02_235329.png) |
 
-The scope of the project
+---
 
+## Schematic
 
-Design of custom schematics
+![Schematic](assets/Screenshot_2026-03-02.png)
 
+---
 
-Layout of flexible PCBs
+## Overview
 
+The STM32U083KCU6 microcontroller powers the system — chosen for its ultra-low power consumption, built-in peripherals, and minimal external component requirements. The flexible PCB integrates the microcontroller, charging circuitry, power regulation, display drivers, and user input into one continuous wearable design.
 
-Making firmware for embedded systems
+---
 
+## Project Scope
 
-Effects that make the display move
+- Custom schematic design
+- Flexible PCB layout with stiffener layers
+- Embedded firmware development
+- Animated display effects (Matrix-style boot sequence)
+- Real-time clock implementation
+- USB programming and charging support
 
+---
 
-Setting up a real-time clock
+## Hardware
 
+### Key Design Considerations
 
-Support for programming and charging via USB
+Power management is critical in this design. During display refresh cycles, voltage drops and transient spikes can cause logic resets — particularly on displays furthest from the power supply. Adequate bypass capacitance and careful layout are required to mitigate this.
 
+Mechanical stiffener layers are applied to component mounting areas to prevent flex fatigue and component delamination during normal wear.
 
-Things to think about when designing
+---
 
+## Firmware & Dependencies
 
-Based on what we learned from looking at other high-current display systems, careful power management and decoupling will probably be very important to make sure that the flexible PCB works properly. During display refresh cycles, voltage drops and transient spikes can happen. To avoid these problems, you need to have enough bypass capacitance and optimize the layout.
+Display control is based on a modified version of:
+> https://github.com/Andy4495/HCMS39xx
 
+To compile:
+- Install **STM32Duino** (Arduino core for STM32)
+- Target: STM32U08 series
 
-In areas where components are mounted, mechanical reinforcement (stiffener layers) will also be needed to keep the PCB from breaking when it bends.
+---
 
-
-Firmware and Dependencies
-
-
-The implementation of the display control is based on a changed version of the following library:
-
-
-https://github.com/Andy4495/HCMS39xx
-
-
-This repository has the .ino file and the modified library files.
-
-
-You need to install STM32Duino (Arduino core for STM32) to compile the firmware.
-This project is for the STM32U08 series of microcontrollers.
-
-
-Warning
-
-
-This is an experimental hardware project meant for research and development.
+> ⚠️ This is an experimental hardware project intended for research and development purposes only.
