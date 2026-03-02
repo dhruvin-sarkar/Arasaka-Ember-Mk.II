@@ -51,16 +51,6 @@ Programming and charging both happen over the same cable — a standard USB cabl
 
 ---
 
-## Key Design Considerations
-
-Power management is critical. During display refresh cycles, voltage drops and transient spikes can cause logic resets — particularly on displays furthest from the power supply. Adequate bypass capacitance on each display's logic line is required to keep the chain stable.
-
-Stiffener layers must be added to all component mounting regions. Without them, repeated bending of the flex PCB will cause components to crack or delaminate over time.
-
-The displays used (HCMS-2901) are not widely available and are fairly expensive at around $30 each. Sourcing directly from Broadcom or finding alternatives may be necessary. They are also sensitive to heat — hot air soldering damages them, so a low-temperature solder paste with a hotplate is recommended, though low-temp solder can be brittle on flexible boards and may need reinforcement.
-
----
-
 ## Firmware & Dependencies
 
 Display control is based on a modified version of:
