@@ -34,7 +34,7 @@ Press the center button to wake the display and trigger the boot animation. Use 
 
 | Ref | Component | Value / Part | Package | Qty | Datasheet / Source |
 |-----|-----------|-------------|---------|-----|-------------------|
-| U5–U18 | Alphanumeric LED Display | **HCMS-2901** | Custom SMD (bent TH pins) | 14 | [Broadcom Datasheet](https://docs.broadcom.com/doc/AV02-0683EN) · [Mouser](https://www.mouser.com/ProductDetail/Broadcom-Avago/HCMS-2901) |
+| U5–U18 | Alphanumeric LED Display | **HCMS-3901** | Custom SMD (bent TH pins) | 14 | [Broadcom Datasheet](https://docs.broadcom.com/doc/AV02-0683EN) · [Mouser](https://www.mouser.com/ProductDetail/Broadcom-Avago/HCMS-3901) |
 | U1 | Microcontroller | **STM32U083KCUx** | QFN-32 | 1 | [ST Datasheet](https://www.st.com/resource/en/datasheet/stm32u083kc.pdf) · [Mouser](https://www.mouser.com/ProductDetail/STMicroelectronics/STM32U083KCU6) |
 | U2 | LDO Regulator | **LP2980** (3.3V fixed) | SOT-23-5 | 1 | [TI Datasheet](https://www.ti.com/lit/ds/symlink/lp2980.pdf) · [Mouser](https://www.mouser.com/ProductDetail/Texas-Instruments/LP2980IM5X-3.3) |
 | U3 | LiPo Charger | **STC4054** | SOT-23-5 | 1 | [Datasheet](https://datasheet.lcsc.com/lcsc/2210211830_Shenzhen-Fuman-Elec-STC4054_C89852.pdf) · [LCSC](https://www.lcsc.com/product-detail/Battery-Management_Shenzhen-Fuman-Elec-STC4054_C89852.html) |
