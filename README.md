@@ -27,7 +27,7 @@ The STM32U083KCU6 microcontroller powers the system — chosen for its ultra-low
 ---
 
 ## How It Works
-The basic concept is to daisy-chain a strip of alphanumeric LED displays (HCMS-2901 or similar Broadcom displays) and wrap it around the wrist using a flexible PCB. Upon boot, the watch displays a Matrix-style waterfall animation before transitioning to a clock display.Upon boot, the watch displays a Matrix-style waterfall animation before transitioning to a clock display.
+The basic concept is to daisy-chain a strip of alphanumeric LED displays (HCMS-3901 or similar Broadcom displays) and wrap it around the wrist using a flexible PCB. Upon boot, the watch displays a Matrix-style waterfall animation before transitioning to a clock display.Upon boot, the watch displays a Matrix-style waterfall animation before transitioning to a clock display.
 
 Displays are driven in series, so the further from the microcontroller, the more sensitive they are to power fluctuations. During refresh, all pixels briefly turn off, causing a power spike. Small bypass capacitors near each display's logic supply are needed to absorb spikes and prevent resets.
 
