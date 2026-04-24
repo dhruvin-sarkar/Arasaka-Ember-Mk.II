@@ -6,11 +6,11 @@ A cyberpunk-inspired wristwatch built on a custom flexible PCB, wrapping high-de
 
 ## What is it?
 
-Ember Mk.II is a handmade wristwatch built around a custom flexible PCB that wraps 14 Broadcom HCMS-2901 alphanumeric LED displays around the wrist. On wake, it plays a Matrix-style waterfall animation before transitioning to a live clock display. Everything — the microcontroller, charging circuit, power regulation, displays, and clasp — lives on one continuous bendable strip.
+Ember Mk.II is a handmade wristwatch built around a custom flexible PCB that wraps 14 Broadcom HCMS-2901 alphanumeric LED displays around the wrist.
 
 ## How to use it
 
-Press the center button to wake the display and trigger the boot animation. Use the up and down buttons to cycle through menus: time display, mini time, brightness, current, timezone offset, and wave mode. The watch charges and programs over the same 4-pin header used as the wrist clasp — no separate programmer needed. To set the time, send a Unix epoch timestamp over serial.
+Press the center button to wake the display and trigger the boot animation. Use the up and down buttons to cycle through menus: time display, mini time, brightness, current, timezone offset, and wave mode. The watch charges and programs over the same 4-pin header used as the wrist. To set the time, send a Unix epoch timestamp over serial.
 
 ---
 
@@ -54,35 +54,6 @@ Press the center button to wake the display and trigger the boot animation. Use 
 
 ---
 
-## Overview
-
-The STM32U083KCU6 microcontroller powers the system — chosen for its ultra-low power consumption, built-in peripherals, and minimal external component requirements. The flexible PCB integrates the microcontroller, charging circuitry, power regulation, display drivers, and user input into one continuous wearable design.
-
----
-
-## How It Works
-
-The basic concept is to daisy-chain a strip of alphanumeric LED displays (HCMS-2901 or similar Broadcom displays) and wrap it around the wrist using a flexible PCB. Upon boot, the watch displays a Matrix-style waterfall animation before transitioning to a clock display.
-
-Displays are driven in series, so the further from the microcontroller, the more sensitive they are to power fluctuations. During refresh, all pixels briefly turn off, causing a power spike. Small bypass capacitors near each display's logic supply are needed to absorb spikes and prevent resets.
-
-A single-cell LiPo battery of 200–500mAh powers the watch. A charging IC handles USB charging, and an LDO regulator provides stable 3.3V logic. At full brightness, the displays draw about 1A, so battery life is limited. The watch is off by default and activates only when a button is pressed to save power.
-
-The flexible PCB has stiffeners under components to prevent flex damage. It attaches to the wrist with pin headers; USB-C was considered but risks tearing the board. Programming and charging use the same cable. The STM32U083 supports USB natively, so no extra programmer is needed if the bootloader is set up. An SWD debugger like ST-Link can also be used via TP1/TP2.
-
----
-
-## Project Scope
-
-- Custom schematic design
-- Flexible PCB layout with stiffener layers
-- Embedded firmware development
-- Animated display effects (Matrix-style boot sequence)
-- Real-time clock implementation
-- USB programming and charging support
-
----
-
 ## Firmware & Dependencies
 
 Display control is based on a modified version of the HCMS39xx Arduino library:
@@ -112,5 +83,3 @@ To compile:
 | KiCad EDA | [kicad.org](https://www.kicad.org) |
 
 ---
-
-> ⚠️ This is an experimental hardware project intended for research and development purposes only.
